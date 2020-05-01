@@ -1,0 +1,6 @@
+---
+statsd_host: '{{ env "attr.driver.docker.bridge_ip" }}'
+servers:{{ range service (printf "%s.cluster-sentinel" (env "NOMAD_REGION")) }}
+  - "http://{{ .Address }}:{{ .Port }}"
+{{ end }}
+vault_test_value: '{{ with secret "/secret/nomad-cluster-sentinel/vault-test-value" }}{{ .Data.value }}{{ end }}'

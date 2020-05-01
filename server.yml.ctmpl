@@ -1,0 +1,2 @@
+---
+statsd_host: '{{ env "attr.driver.docker.bridge_ip" }}'
