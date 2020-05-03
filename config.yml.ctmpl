@@ -1,0 +1,5 @@
+---
+config:
+  # Example of accessing Docker bridge IP in a template, istead of an environment
+  # variable.
+  statsd_host: '{{env "attr.driver.docker.bridge_ip"}}'
